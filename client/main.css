@@ -1,0 +1,59 @@
+/* CSS declarations go here */
+html{
+    background-color: #D6E2EA;
+}
+
+.container{
+    background-color: #D6E2EA;    
+}
+
+input.error{
+    background-color:rgb(255, 231, 231);
+}
+
+#linkForm{
+    border: black;
+    border-style:solid;
+    border-width: 1px;
+    padding: 10px;
+    padding-left: 2em;
+    border-radius: 5px;
+    margin-top: 1em;
+    background: white;
+}
+
+#linkTable{
+    border: black;
+    border-style:solid;
+    border-width: 1px;
+    padding: 10px;
+    padding-left: 2em;
+    border-radius: 5px;
+    margin-top: 1em;
+    background: white;
+}
+
+.delete{
+    margin-top: 1px;
+    margin-bottom: 1px;
+    width: 100%;
+}
+
+.back{
+    color:white;
+    text-decoration: underline;
+}
+
+.back:hover{
+    color:black;
+}
+
+header{
+    margin-top: -1.5em;
+    background: #7a9c3e;
+    height: 8em;
+    padding-top: 2em;
+    padding-left: 3em;
+    color: white;
+}
+

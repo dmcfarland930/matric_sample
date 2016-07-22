@@ -1,0 +1,100 @@
+<head>
+  <title>matric_sample</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+</head>
+
+<!--template for home page-->
+<template name="home">
+    <html>
+        <body>
+            <header>
+                <h1>Matric Sample - Daniel McFarland</h1>
+            </header>
+            
+<!--insert form template into homepage-->
+                <div id="linkForm" class="col-md-6 col-md-offset-2">
+                    {{> linkForm}}
+                </div> 
+        </body>
+    </html>
+</template>
+
+
+<!--template for to show table with links-->
+<template name="show">
+    <html>
+        <body>
+            <header>
+                <h1><a class="back" href="/">Back</a></h1>
+            </header>
+            <div id="linkTable" class="col-md-8 col-md-offset-2">
+                    <h2>Your Saved Links</h2>
+                <table border="1" class="table table-bordered" id="link-table">
+                    <thead>
+                        <th>Title</th>
+                        <th>Url</th>
+                        <th>Desc</th>
+                        <th>Date Created</th>
+                        <th>Delete Link</th>
+                    </thead>
+                    
+                    
+<!--loop to display each link saved in database-->
+                    {{#each links}}
+                        {{> link}}
+                    {{/each}}
+                </table>
+            </div>     
+        </body>
+    </html>
+</template>
+
+<!--template for a form to enter link information-->
+<template name="linkForm">
+            <h1>Enter URLS</h1>
+            <form class="linkForm form-horizontal col-md-offset-3">
+            <fieldset class="form-group form-horizontal">
+                            <label class="col-md-3" for="title">Tile</label>
+                <input class="col-md-6" type="text" name="title" placeholder="Enter title for url" required>
+            </fieldset>
+            
+            <fieldset class="form-group form-horizontal">
+                            <label class="col-md-3" for="url">URL</label>
+                <input class="col-md-6" type="url" name="url" placeholder="http://www.yourlink.com" required>
+            </fieldset>
+            
+            <fieldset class="form-group form-horizontal">
+                            <label class="col-md-3" for="desc">Description</label>
+                <input class="col-md-6" type="description" name="desc" placeholder="Enter Description" required>
+            </fieldset>
+            
+            <fieldset class="form-group form-horizontal">
+                <input class="btn save btn-default col-md-6 col-md-offset-3" type="submit" value="Save">
+            </fieldset>
+            </form>
+        
+            <a class="btn btn-default col-md-6 col-md-offset-3" href="/show">See Saved Links</a>
+    
+</template>
+
+<!--template for table displaying link information-->
+<template name="link">              
+         <tr>
+            <td>{{title}}</td> 
+            <td><a href="{{url}}">{{url}}</a></td> 
+            <td>{{desc}}</td> 
+            <td>{{createdOn.toDateString}}</td> 
+            <td><button class="btn delete btn-alert delete">Delete</button></td>
+         </tr>
+</template>
+
